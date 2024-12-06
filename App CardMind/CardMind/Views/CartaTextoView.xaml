@@ -2,14 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CardMind.Views.CartaTextoView"
-             Title="CartaTextoView"
              xmlns:controls="clr-namespace:CardMind.Controls">
     <VerticalStackLayout>
         <controls:Header
             x:Name="header"/>
         <Frame
             Padding="50"
-            BorderColor="Red">
+            BorderColor="Red"
+            WidthRequest="500">
             <VerticalStackLayout>        
                 <Label
                     x:Name="lbNomeCarta"
@@ -27,8 +27,6 @@
                         MaximumWidthRequest="250"
                     />
                 </Frame>
-                <Button
-                    />
             </VerticalStackLayout>
         </Frame>
 

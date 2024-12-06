@@ -77,7 +77,7 @@ namespace CardMind.ViewModels
             {
 
                 //verificar se o post ocorreu como esperado; trocar depois código abaixo
-                autenticationService.InserirUsuario(Usuario.NomeUsuario, Usuario.Email, Usuario.Senha);
+                autenticationService.InserirUsuario("a", "a", "a");
 
                 await _navigationService.NavigateToAsync("//Menu/Home");
             }

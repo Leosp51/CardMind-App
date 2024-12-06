@@ -15,9 +15,7 @@ namespace CardMind.Services.ApiCardMind
             string status = Preferences.Get("statusUsuario","primeiraVez");
             if (status == "cadastrado")
             {
-                usuario.NomeUsuario = Preferences.Get("nomeUsuario","guest");
-                usuario.Email = Preferences.Get("emailUsuario", "default");
-                usuario.Senha = Preferences.Get("senhaUsuario", "123");
+                PopularUsuario();
             }
         }
         public void InserirUsuario(string nome, string email, string senha)
@@ -30,7 +28,16 @@ namespace CardMind.Services.ApiCardMind
         }
         public bool Validacao(string email, string senha)
         {
-            return email.Equals(usuario.Email) && senha.Equals(usuario.Senha);
+            return email.Equals("a") && senha.Equals("123");
+        }
+
+        public void PopularUsuario()
+        {
+
+            usuario.NomeUsuario = Preferences.Get("nomeUsuario", "guest");
+            usuario.Email = Preferences.Get("emailUsuario", "default");
+            usuario.Senha = Preferences.Get("senhaUsuario", "123");
+
         }
     }
 }

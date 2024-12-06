@@ -29,6 +29,7 @@ namespace CardMind.ViewModels
             bool valido = autenticationService.Validacao(Email, Password);
             if (valido){
                 Preferences.Set("statusUsuario", "cadastro");
+                Email = Password = "";
                 await navigationService.NavigateToAsync("//Menu/Home");
             }
             else
