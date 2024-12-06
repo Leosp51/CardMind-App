@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardMind.Popups.CriarBaralho"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    <Frame
+        BackgroundColor="White"
+        BorderColor="Red"
+        MinimumHeightRequest="350"
+        MinimumWidthRequest="350">
+        <VerticalStackLayout
+                             >
+            <Label
+                Text="Criação de Baralho"
+                HorizontalOptions="Center"
+                FontSize="20"/>
+            <VerticalStackLayout Margin="25">
+                <Label
+                    Text="Nome"/>
+                <Frame BorderColor="Red">
+                    <Entry
+                        x:Name="NomeEntry"
+                        Placeholder="Ex: Historia"/>
+                </Frame>
+                <Label
+                    Text="Estilo"/>
+                <Frame BorderColor="Red">
+                    <Picker x:Name="PickerEstilo">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Nenhum</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </Frame>
+            </VerticalStackLayout>
+            <Button
+                Text="Criar"
+                Margin="50"
+                Clicked="Criar"/>
+        </VerticalStackLayout>
+    </Frame>
+</toolkit:Popup>

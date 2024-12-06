@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardMind.Views.CartaTextoView"
+             Title="CartaTextoView"
+             xmlns:controls="clr-namespace:CardMind.Controls">
+    <VerticalStackLayout>
+        <controls:Header
+            x:Name="header"/>
+        <Frame
+            Padding="50"
+            BorderColor="Red">
+            <VerticalStackLayout>        
+                <Label
+                    x:Name="lbNomeCarta"
+                    HorizontalOptions="Center"
+                    FontAttributes="Bold"
+                    FontSize="Large"/>
+                <Frame
+                    BorderColor="Red"
+                    HorizontalOptions="Center"
+                    Padding="5"
+                    HeightRequest="400">
+                    <Label
+                        x:Name="lbTexto"
+                        FontSize="20"
+                        MaximumWidthRequest="250"
+                    />
+                </Frame>
+                <Button
+                    />
+            </VerticalStackLayout>
+        </Frame>
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardMind.Views.BaralhosView"
+             xmlns:models="clr-namespace:CardMind.Models"
+             xmlns:controls="clr-namespace:CardMind.Controls"
+             xmlns:viewmodel="clr-namespace:CardMind.ViewModels"
+             x:DataType="viewmodel:BaralhosViewModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             >
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            EventName="Appearing"
+            Command="{Binding ApearingCommand}"/>
+    </ContentPage.Behaviors>
+    <VerticalStackLayout>
+        <controls:Header
+            x:Name="header"
+            Dinheiro="{Binding DinheiroUsuario}"
+            Trofeus="{Binding TrofeusUsuario}"/>
+        <Label
+            Text="Baralhos"
+            HorizontalOptions="Center"
+            FontSize="Medium"/>
+        <HorizontalStackLayout
+            HorizontalOptions="Center">
+            <SearchBar
+                Placeholder="Busque seu baralho"
+                WidthRequest="200"/>
+            <ImageButton
+                Source="adicionar.png"
+                HeightRequest="40"
+                WidthRequest="40"
+                CornerRadius="10"
+                Command="{Binding ShowPopupCommand}"/>
+
+        </HorizontalStackLayout>
+        <ScrollView
+            Padding="4">
+            <CollectionView x:Name="CollectionBaralhos"
+                            SelectionMode="Single"
+                            ItemsSource="{Binding NomesBaralhos}"
+                            SelectedItem="{Binding Item}"
+                            SelectionChangedCommand="{Binding BaralhoSelecionadoCommand}"
+                            SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:RelativeSource Self}}"
+                            WidthRequest="400"
+                            HorizontalOptions="Center">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Spacing="10" HeightRequest="50" WidthRequest="350">
+                            <Border
+                                Stroke="Red"
+                                StrokeThickness="4"
+                                Padding="5"
+                                WidthRequest="350"
+                                MaximumHeightRequest="200">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="20,20,20,20"/>
+                                </Border.StrokeShape>
+                                <HorizontalStackLayout>
+                                    <Image
+                                        Source="brasil_linguagem.png"
+                                        Aspect="AspectFill"
+                                        HeightRequest="50"
+                                        WidthRequest="50"/>
+                                    <Label
+                                        Text="{Binding .}"
+                                        FontSize="25"
+                                        />
+                                </HorizontalStackLayout>
+                            </Border>
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

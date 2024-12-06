@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardMind.Views.PerfilView"
+             xmlns:viewModels="clr-namespace:CardMind.ViewModels"
+             x:DataType="viewModels:PerfilViewModel"
+             Shell.NavBarIsVisible="False">
+    <VerticalStackLayout>
+        
+        <Frame
+            BorderColor="Gray"
+            BackgroundColor="#E0E0E0"
+            Margin="10">
+            <VerticalStackLayout>
+                <Image
+                    Source="perfil2.png"
+                    HorizontalOptions="Center"
+                    HeightRequest="75"
+                    />
+                <Label
+                    Text="Apelido"
+                    FontSize="Small"/>
+                <Label
+                    Text="Lucas"
+                    FontSize="Micro"/>
+                <Label
+                    Text="E-mail"
+                    FontSize="Small"/>
+                <Label
+                    Text="lucas@gmail.com"
+                    FontSize="Micro"/>
+                <Button
+                    Text="Apoie Nosso Projeto"
+                    TextColor="White"
+                    BackgroundColor="Red"
+                    HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Frame>
+        <Frame BorderColor="Gray"
+               BackgroundColor="#E0E0E0"
+               Margin="10">
+            <VerticalStackLayout>
+                <HorizontalStackLayout Margin="5">
+                    <Label
+                        Text="Idioma"
+                        FontSize="Small"
+                        HorizontalOptions="Start"
+                        Margin="4"/>
+                    <Button
+                        Text="Português"
+                        TextColor="White"
+                        BackgroundColor="Red"
+                        HorizontalOptions="End"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Margin="5">
+                    <Label
+                        Text="Modo Noturno"
+                        FontSize="Small"
+                        Margin="4"/>
+                    <Switch IsToggled="False"
+                        HorizontalOptions="End"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+        <Frame Margin="5"
+               BackgroundColor="#E0E0E0"
+               BorderColor="Gray">
+            <Label
+                Text="Políticas de Privacidade"
+                FontSize="Small"
+                HorizontalOptions="Center"/>
+        </Frame>
+        <Border Margin="5"
+               BackgroundColor="#E0E0E0"
+               Stroke="Gray">
+            <Button
+                Text="Sair"
+                FontSize="Small"
+                HorizontalOptions="Center"
+                BackgroundColor="Gray"
+                TextColor="White"
+                WidthRequest="500"
+                Command="{Binding LogoutCommand}"/>
+        </Border>
+        
+    </VerticalStackLayout>
+</ContentPage>

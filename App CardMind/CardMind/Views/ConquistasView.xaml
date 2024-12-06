@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardMind.Views.ConquistasView"
+             xmlns:models="clr-namespace:CardMind.Models"
+             xmlns:vm="clr-namespace:CardMind.ViewModels"
+             xmlns:controls="clr-namespace:CardMind.Controls"
+             x:DataType="vm:ConquistasViewModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            EventName="Appearing"
+            Command="{Binding AppearingCommand}"/>
+    </ContentPage.Behaviors>
+    <VerticalStackLayout
+        HorizontalOptions="Center">
+        <controls:Header
+            x:Name="header"
+            Dinheiro="{Binding DinheiroUsuario}"
+            Trofeus="{Binding TrofeusUsuario}"/>
+        <Label
+            Text="Conquistas"
+            FontSize="Medium"
+            HorizontalOptions="Center"
+            />
+        <ScrollView
+            Padding="10">
+            <CollectionView ItemsSource="{Binding Conquistas}"
+                            WidthRequest="300">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Conquista">
+                        <Border
+                            Stroke="Gray"
+                            StrokeThickness="2">
+                            <HorizontalStackLayout>
+                                <Frame
+                                    WidthRequest="200"
+                                    BorderColor="White">
+                                    <HorizontalStackLayout>
+                                        <Image
+                                            Source="espadas.png"
+                                            HeightRequest="15"
+                                            WidthRequest="15"
+                                            Margin="10"/>
+                                        <VerticalStackLayout>
+                                            <Label
+                                                Text="{Binding NomeConquista}"
+                                                FontSize="15"
+                                                FontAttributes="Bold"/>
+                                            <Label
+                                                Text="{Binding Objetivo}"
+                                                FontSize="15"/>
+                                        </VerticalStackLayout>
+                                    </HorizontalStackLayout>
+                                </Frame>
+                                <Button
+                                    Text="Obter"
+                                    FontSize="15"
+                                    BackgroundColor="{Binding Cor}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ConquistasViewModel}}, Path=GanharRecompensaCommand}"
+                                    CommandParameter="{Binding .}"
+                                    HeightRequest="40"
+                                    CornerRadius="20"
+                                    />
+                            </HorizontalStackLayout>
+
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

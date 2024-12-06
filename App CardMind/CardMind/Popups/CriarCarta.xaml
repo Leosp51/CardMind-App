@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardMind.Popups.CriarCarta"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    <Frame
+        BackgroundColor="White"
+        BorderColor="Red"
+        MinimumHeightRequest="600"
+        MinimumWidthRequest="350"
+        >
+        <VerticalStackLayout
+                         >
+            <Label
+                Text="Criação de Carta"
+                HorizontalOptions="Center"
+                FontSize="20"/>
+            <VerticalStackLayout Margin="25">
+                <Label
+                     Text="Nome"/>
+                <Frame BorderColor="Red">
+                    <Entry
+                    x:Name="NomeEntry"
+                    Placeholder="Ex: Historia"/>
+                </Frame>
+                <HorizontalStackLayout
+                    HorizontalOptions="Center">
+                    <Label
+                        Text="Tipo"
+                        Margin="1"/>
+                    <RadioButton
+                        x:Name="RadioPergunta"
+                        Content="Pergunta"
+                        GroupName="Type"
+                        CheckedChanged="RadioButton_CheckedChanged"/>
+                    <RadioButton
+                        Content="Texto"
+                        GroupName="Type"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <VerticalStackLayout
+                        x:Name="OptionPergunta">
+                        <Label
+                            Text="Pergunta"/>
+                        <Frame
+                            BorderColor="Red">
+                            <Entry
+                                x:Name="EntryPergunta"
+                                WidthRequest="225"
+                                Placeholder="Digite sua Pergunta"/>
+                        </Frame>
+                        <Label
+                            Text="Resposta"/>
+                        <Frame
+                            BorderColor="Red">
+                            <Entry
+                                x:Name="EntryResposta"
+                                Placeholder="Digite a resposta para sua pergunta"
+                                WidthRequest="255"/>
+                        </Frame>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout
+                        x:Name="OptionTexto">
+                        
+                        <Label
+                            Text="Texto"/>
+                        
+                        <Frame
+                            BorderColor="Red">
+                            
+                            <Editor
+                                x:Name="EdTexto"
+                                Placeholder="Digite o texto que preferir aqui"
+                                WidthRequest="255"
+                                HeightRequest="100"/>
+
+                        </Frame>
+
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+                
+            </VerticalStackLayout>
+            <Button
+                Text="Criar"
+                Margin="50"
+                Clicked="Criar"/>
+        </VerticalStackLayout>
+    </Frame>
+</toolkit:Popup>

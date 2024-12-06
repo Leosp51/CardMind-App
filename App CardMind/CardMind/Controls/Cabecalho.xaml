@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardMind.Controls.Cabecalho">
+    <VerticalStackLayout>
+        <Frame
+    HeightRequest="70"
+    BackgroundColor="Red"
+>
+            <HorizontalStackLayout>
+                <Label
+        Text="Olá, visitante!"
+        FontSize="15"
+        TextColor="White"/>
+                <Image
+        Source="trofeu.png"/>
+                <Label
+            x:Name="lbTrofeu"
+            TextColor="White"
+            FontSize="15"
+            Margin="5"/>
+                <Image
+        Source="moeda.png"/>
+                <Label
+            x:Name="lbMoeda"
+            Text="0"
+            TextColor="White"
+            FontSize="15"
+            Margin="5"/>
+                <Image
+        Source="brasil_linguagem.png"/>
+
+            </HorizontalStackLayout>
+        </Frame>
+    </VerticalStackLayout>
+</ContentView>

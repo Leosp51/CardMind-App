@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="CardMind.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CardMind"
+    Shell.FlyoutBehavior="Disabled"
+    xmlns:views="clr-namespace:CardMind.Views"
+    Title="CardMind"
+    Shell.TabBarBackgroundColor="Red"
+    Shell.TabBarForegroundColor="#A001ff"
+    Shell.TabBarUnselectedColor="White">
+
+    <FlyoutItem>
+        <ShellContent
+            x:Name="login"
+            ContentTemplate="{DataTemplate views:Login}"
+            Route="Login"
+            />
+    </FlyoutItem>
+    <FlyoutItem>
+
+        <ShellContent
+            x:Name="cadastrar"
+            ContentTemplate="{DataTemplate views:CadastroView}"
+            
+            Route="Cadastro"/>
+    </FlyoutItem>
+
+    <TabBar
+        Route="Menu">
+        <ShellContent
+            Icon="trofeu.png"
+            ContentTemplate="{DataTemplate views:ConquistasView}"
+            Route="Conquistas"/>
+        <ShellContent
+            Icon="comunidade.png"
+            ContentTemplate="{DataTemplate views:ComunidadeView}"
+            Route="Comunidade"/>
+        <ShellContent
+            Icon="casa.png"
+            ContentTemplate="{DataTemplate views:BaralhosView}"
+            Route="Home"/>
+        <ShellContent
+            x:Name="loja"
+            Icon="carrinho_de_compras.png"
+            ContentTemplate="{DataTemplate views:LojaView}"
+            Route="Loja"/>
+        <ShellContent
+            Icon="perfil.png"
+            ContentTemplate="{DataTemplate views:PerfilView}"
+            Route="Perfil"/>
+    </TabBar>
+
+</Shell>

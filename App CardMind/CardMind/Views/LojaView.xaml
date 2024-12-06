@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardMind.Views.LojaView"
+             xmlns:controls="clr-namespace:CardMind.Controls"
+             xmlns:models="clr-namespace:CardMind.Models"
+             xmlns:viewModel="clr-namespace:CardMind.ViewModels"
+             x:DataType="viewModel:LojaViewModel"
+             xmlns:toolkit ="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            EventName="Appearing"
+            Command="{Binding AppearingCommand}"/>
+    </ContentPage.Behaviors>
+    <VerticalStackLayout>
+        <controls:Header
+            x:Name="header"
+            Dinheiro="{Binding DinheiroUsuario}"
+            Trofeus="{Binding TrofeusUsuario}"/>
+        <Label
+            Text="Loja"
+            FontSize="Medium"
+            HorizontalOptions="Center"/>
+        <CollectionView
+            x:Name="collectionEstilos"
+            SelectionMode="Single"
+            ItemsSource="{Binding Estilos}" ItemsLayout="VerticalGrid, 2">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:EstiloBaralho">
+                    <VerticalStackLayout WidthRequest="100">
+                        <Label
+                            Text="{Binding NomeEstilo}"
+                            FontSize="Small"
+                            HorizontalOptions="Center"/>
+                        <Image
+                            Source="{Binding Img}"
+                            HeightRequest="100"
+                            HorizontalOptions="Center"/>
+                        <Button
+                            Text="{Binding Valor}"
+                            FontSize="Micro"
+                            HeightRequest="40"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:LojaViewModel}}, Path=ComprarEstiloCommand}"
+                            CommandParameter="{Binding .}"
+                            CornerRadius="10"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

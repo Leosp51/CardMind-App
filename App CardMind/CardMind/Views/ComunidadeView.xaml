@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardMind.Views.ComunidadeView"
+             xmlns:controls="clr-namespace:CardMind.Controls"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vm="clr-namespace:CardMind.ViewModels"
+             x:DataType="vm:ComunidadeViewModel"
+             >
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            EventName="Appearing"
+            Command="{Binding AppearingCommand}"/>
+    </ContentPage.Behaviors>
+    <VerticalStackLayout
+        >
+        <controls:Header
+                x:Name="header"
+                Dinheiro="{Binding DinheiroUsuario}"
+                Trofeus="{Binding TrofeusUsuario}"
+            />
+        <Label 
+            Text="Comunidade"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <SearchBar
+            WidthRequest="250"
+            HorizontalOptions="Center"/>
+        <Image
+            Source="arte_manutencao.png"
+            HeightRequest="300"/>
+        <Label
+            Text="Em Manutenção"
+            FontSize="Medium"
+            HorizontalOptions="Center"
+            FontAttributes="Bold"/>
+    </VerticalStackLayout>
+</ContentPage>

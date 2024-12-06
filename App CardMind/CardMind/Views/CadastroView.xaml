@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardMind.Views.CadastroView"
+             xmlns:vm="clr-namespace:CardMind.ViewModels"
+             x:DataType="vm:CadastroViewModel">
+    <VerticalStackLayout Padding="10">
+        <HorizontalStackLayout>
+            <Image
+                Source="espadas.png"
+                HeightRequest="45"/>
+            <Label
+                Text="Card Mind"
+                FontSize="45"
+                HorizontalOptions="Center"/>
+            <Image
+                Source="espadas.png"
+                HeightRequest="45"/>
+        </HorizontalStackLayout>
+        <Label
+            Text="Cadastrar"
+            Margin="20"
+            FontSize="30"
+            HorizontalOptions="Center"
+           />
+        <Entry Placeholder="Nome" Text="{Binding Usuario.NomeUsuario }"/>
+        <Entry Placeholder="Email" Text="{Binding Usuario.Email}"/>
+        <Entry Placeholder="Senha" Text="{Binding Usuario.Senha}"
+                BackgroundColor="{Binding Cor}"/>
+        <Entry Placeholder="Confirmar Senha" Text="{Binding ConfirmarSenha}"
+                BackgroundColor="{Binding Cor}"/>
+        <Button
+            Text="Registrar-se"
+            Margin="30"
+            BackgroundColor="Red"
+            TextColor="White"
+            Command="{Binding ValidarCommand}"/>
+        <Label
+            Text="{Binding Message}"
+            TextColor="Red"/>
+        <Label
+            x:Name="LbCadastro"
+            Text=""
+            IsVisible="{Binding Validado}"/>
+    </VerticalStackLayout>
+</ContentPage>

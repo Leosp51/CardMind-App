@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardMind.Views.BaralhoView"
+             xmlns:controls ="clr-namespace:CardMind.Controls"
+             xmlns:models ="clr-namespace:CardMind.Models"
+             xmlns:vm="clr-namespace:CardMind.ViewModels"
+             x:DataType="vm:BaralhoViewModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            EventName="Appearing"
+            Command="{Binding AppearingCommand}"/>
+    </ContentPage.Behaviors>
+    <VerticalStackLayout>
+        <controls:Header
+            x:Name="header"
+            Dinheiro="{Binding DinheiroUsuario}"
+            Trofeus="{Binding TrofeusUsuario}"/>
+        <Label
+            x:Name="Name"
+            FontSize="20"
+            HorizontalOptions="Center"
+            Text="{Binding NomeBaralho}"/>
+        <HorizontalStackLayout
+            HorizontalOptions="Center">
+            <SearchBar
+                WidthRequest="200"/>
+            <ImageButton
+                Source="adicionar.png"
+                HeightRequest="40"
+                WidthRequest="40"
+                CornerRadius="10"
+                Command="{Binding CriarCartaCommand}"/>
+        </HorizontalStackLayout>
+        <CollectionView
+            x:Name="CollectionCartas"
+            SelectionMode="None"
+            ItemsSource="{Binding Cartas}"
+            SelectedItem="{Binding Item}"
+            WidthRequest="400"
+            HorizontalOptions="Center">
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Carta">
+                    <HorizontalStackLayout Spacing="10" HeightRequest="50" WidthRequest="350">
+                            <Border
+                                Stroke="Red"
+                                StrokeThickness="4"
+                                Padding="5"
+                                WidthRequest="350">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20,20,20,20"/>
+                            </Border.StrokeShape>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaralhoViewModel}}, Path=AbrirCartaCommand}"
+                                                      CommandParameter="{Binding .}"/>
+                            </Border.GestureRecognizers>
+                            
+                            <HorizontalStackLayout >
+                                    <Image
+                                        Source="brasil_linguagem.png"
+                                        Aspect="AspectFill"
+                                        HeightRequest="50"
+                                        WidthRequest="50"/>
+                                    <Label
+                                        Text="{Binding NomeCarta}"
+                                        FontSize="25"
+                                        />
+                                </HorizontalStackLayout>
+                            </Border>
+                        </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
