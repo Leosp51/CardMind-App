@@ -10,12 +10,12 @@
             BindingContext="{x:Reference this}">
             <HorizontalStackLayout>
                 <Label
-                    Text="Olá, Lucas!"
+                    x:Name="lbNome"
                     FontSize="15"
                     TextColor="White"/>
                 <Border
                     Stroke="Red"
-                    WidthRequest="165">
+                    WidthRequest="155">
                 </Border>
                 <Image
                     Source="trofeu.png"/>

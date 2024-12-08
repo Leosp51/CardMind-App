@@ -17,6 +17,7 @@ namespace CardMind.ViewModels
     public partial class LojaViewModel: ObservableObject
     {
         private EstilosLocalService estilosLocalService;
+        private UsuarioLocalService usuarioLocalService;
         private SistemaRecompensa sistemaRecompensa = new();
 
         [ObservableProperty]
@@ -26,10 +27,11 @@ namespace CardMind.ViewModels
         [ObservableProperty]
         public string trofeusUsuario;
 
-        public LojaViewModel(SistemaRecompensa sistemaRecompensa, EstilosLocalService estilosLocalService)
+        public LojaViewModel(SistemaRecompensa sistemaRecompensa, EstilosLocalService estilosLocalService, UsuarioLocalService usuarioLocalService)
         {
             this.sistemaRecompensa = sistemaRecompensa;
             this.estilosLocalService = estilosLocalService;
+            this.usuarioLocalService = usuarioLocalService;
             Estilos = new();
             DinheiroUsuario = "0";
             TrofeusUsuario = "0";
@@ -59,7 +61,7 @@ namespace CardMind.ViewModels
                 if (!result.Equals(false)){
                     Appearing();
                     estilosLocalService.estiloBaralhos.Remove(estilo);
-                    estilosLocalService.estilosUsuario.Add(estilo);
+                    usuarioLocalService.AdicionarEstilo(estilo);
                     List<EstiloBaralho> est = estilosLocalService.estiloBaralhos;
                     foreach (var item in est)
                     {

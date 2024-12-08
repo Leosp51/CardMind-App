@@ -11,6 +11,7 @@ namespace CardMind.Models
         public string NomeBaralho { get; set; }
         public int CodBaralho { get; set; }
         public int CodEstilo { get; set; }
+        public List<Carta> Cartas { get; set; }
 
         //Construtor para teste abaixo
         public Baralho(string nome, int codigo)
@@ -18,6 +19,9 @@ namespace CardMind.Models
             NomeBaralho = nome;
             CodBaralho = codigo;
         }
-        public Baralho() { }
+        public Baralho() {
+            NomeBaralho = string.Empty;
+            Cartas = new List<Carta>();
+        }
     }
 }

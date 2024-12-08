@@ -45,9 +45,12 @@ namespace CardMind
             mauiAppBuilder.Services.AddSingleton<BaralhosService>();
             mauiAppBuilder.Services.AddSingleton<SistemaRecompensa>();
             mauiAppBuilder.Services.AddSingleton<AutenticationService>();
-            mauiAppBuilder.Services.AddSingleton<EstilosLocalService>();
 
+
+            mauiAppBuilder.Services.AddSingleton<EstilosLocalService>();
             mauiAppBuilder.Services.AddSingleton<BaralhosLocalService>();
+            mauiAppBuilder.Services.AddSingleton<ConquistasLocalService>();
+            mauiAppBuilder.Services.AddSingleton<UsuarioLocalService>();
 
             return mauiAppBuilder;
         }

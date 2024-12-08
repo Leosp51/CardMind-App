@@ -29,6 +29,7 @@ public partial class BaralhoView : ContentPage
 		InitializeComponent();
 		BindingContext = baralhoViewModel;
 		this.baralhoViewModel = baralhoViewModel;
+
 	}
 
     private async void CollectionCartas_SelectionChanged(object sender, SelectionChangedEventArgs e)

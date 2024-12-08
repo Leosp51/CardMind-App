@@ -27,5 +27,7 @@ public partial class Header : ContentView
 		InitializeComponent();
         Trofeus = sistema.Trofeus.ToString();
         Dinheiro = sistema.Dinheiro.ToString();
+        string nome = Preferences.Get("nomeUsuario", "Lucas");
+        lbNome.Text = "Olá, " + nome;
 	}
 }

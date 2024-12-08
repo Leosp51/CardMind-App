@@ -10,7 +10,6 @@ namespace CardMind.Services.LocalServices
     public class EstilosLocalService
     {
         public List<EstiloBaralho> estiloBaralhos = new();
-        public List<EstiloBaralho> estilosUsuario = new();
         public EstilosLocalService()
         {
             estiloBaralhos.Add(new EstiloBaralho
