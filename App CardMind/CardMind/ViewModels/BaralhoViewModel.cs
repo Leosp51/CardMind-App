@@ -18,12 +18,15 @@ namespace CardMind.ViewModels
     {
         private SistemaRecompensa sistemaRecompensa = new();
         private INavigationService navigationService;
+        private UsuarioLocalService usuarioLocalService;
+
+        public Baralho baralho = new();
 
         [ObservableProperty]
         public string nomeBaralho = "";
 
         [ObservableProperty]
-        public Carta item;
+        public Carta item = new();
 
         [ObservableProperty]
         public ObservableCollection<Carta> cartas = new();
@@ -32,10 +35,13 @@ namespace CardMind.ViewModels
         [ObservableProperty]
         public string trofeusUsuario = "";
 
-        public void BaralhosViewModel(SistemaRecompensa sistemaRecompensa, INavigationService navigationService)
+        public BaralhoViewModel(SistemaRecompensa sistemaRecompensa,
+                                INavigationService navigationService,
+                                UsuarioLocalService usuarioLocalService)
         {
             this.sistemaRecompensa = sistemaRecompensa;
             this.navigationService = navigationService;
+            this.usuarioLocalService = usuarioLocalService;
             //colocar serviço de salvamento
 
         }
@@ -46,7 +52,11 @@ namespace CardMind.ViewModels
             if (result != null)
             {
                 var carta = (Carta)result;
+                usuarioLocalService.RemoverBaralho(baralho);
                 Cartas.Add(carta);
+                baralho.Cartas.Add(carta);
+                usuarioLocalService.AdicionarBaralho(baralho);
+                
 
             }
         }

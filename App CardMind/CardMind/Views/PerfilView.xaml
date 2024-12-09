@@ -33,7 +33,8 @@
                     Text="Apoie Nosso Projeto"
                     TextColor="White"
                     BackgroundColor="Red"
-                    HorizontalOptions="Center"/>
+                    HorizontalOptions="Center"
+                    Margin="0,10,5,0"/>
             </VerticalStackLayout>
         </Frame>
         <Frame BorderColor="Gray"
@@ -42,24 +43,18 @@
             <VerticalStackLayout>
                 <HorizontalStackLayout Margin="5">
                     <Label
-                        Text="Idioma"
-                        FontSize="Small"
+                        Text="Idioma "
+                        FontSize="Medium"
                         HorizontalOptions="Start"
-                        Margin="4"/>
+                        Margin="4,9,0,0"/>
                     <Button
                         Text="Português"
                         TextColor="White"
                         BackgroundColor="Red"
-                        HorizontalOptions="End"/>
+                        HorizontalOptions="End"
+                        Margin="110,0,0,0"/>
                 </HorizontalStackLayout>
-                <HorizontalStackLayout Margin="5">
-                    <Label
-                        Text="Modo Noturno"
-                        FontSize="Small"
-                        Margin="4"/>
-                    <Switch IsToggled="False"
-                        HorizontalOptions="End"/>
-                </HorizontalStackLayout>
+
             </VerticalStackLayout>
         </Frame>
         <Frame Margin="5"

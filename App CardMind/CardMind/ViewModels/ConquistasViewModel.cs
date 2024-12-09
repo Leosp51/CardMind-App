@@ -17,6 +17,7 @@ namespace CardMind.ViewModels
     {
         private ConquistasService conquistasService;
         private SistemaRecompensa sistemaRecompensa;
+        private ConquistasLocalService cls;
 
         [ObservableProperty]
         public ObservableCollection<Conquista> conquistas = new();
@@ -25,51 +26,21 @@ namespace CardMind.ViewModels
         [ObservableProperty]
         public string trofeusUsuario;
 
-        public ConquistasViewModel(SistemaRecompensa sistema)
+        public ConquistasViewModel(SistemaRecompensa sistema, ConquistasLocalService conquistasLS)
         {
             sistemaRecompensa = sistema;
+            cls = conquistasLS;
             PegarConquistas();
         }
 
         public void PegarConquistas()
         {
-            //colocar o serviço no lugar do código abaixo
-            Conquistas.Add(new Conquista
+            List<Conquista> conquistas = cls.PegarConquistas();
+            foreach (var conquista in  conquistas)
             {
-                CodConquista = 1,
-                NomeConquista = "Novato",
-                Objetivo = "Entre no app pela primeira vez",
-                Recompensa = 10,
-                IsFinish = true,
-                Cor = "Red"
-            });
-            Conquistas.Add(new Conquista
-            {
-                CodConquista = 2,
-                NomeConquista = "Comprometimento",
-                Objetivo = "Entre no app 5 vezes em um único dia",
-                Recompensa = 20,
-                IsFinish = false,
-                Cor = "Gray"
-            });
-            Conquistas.Add(new Conquista
-            {
-                CodConquista = 3,
-                NomeConquista = "Viciado",
-                Objetivo = "Entre no app 10 vezes em um único dia",
-                Recompensa = 30,
-                IsFinish = false,
-                Cor = "Gray"
-            });
-            Conquistas.Add(new Conquista
-            {
-                CodConquista = 4,
-                NomeConquista = "Mestre da Criação",
-                Objetivo = "Crie 20 baralhos",
-                Recompensa = 50,
-                IsFinish = false,
-                Cor = "Red"
-            });
+                Conquistas.Add(conquista);
+            }
+
         }
         public void HandleGetError()
         {

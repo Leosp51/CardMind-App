@@ -22,6 +22,8 @@ namespace CardMind
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("inika.ttf", "inika");
+                    fonts.AddFont("inriaSerif.ttf", "inrial");
                 })
                 .RegistrarAppServices()
                 .RegistrarViewModels()
@@ -78,8 +80,10 @@ namespace CardMind
             mauiAppBuilder.Services.AddTransient<BaralhoView>();
             mauiAppBuilder.Services.AddTransient<CartaTextoView>();
             mauiAppBuilder.Services.AddTransient<CartaPerguntaView>();
+            mauiAppBuilder.Services.AddTransient<CartaResposta>();
             mauiAppBuilder.Services.AddTransient<CadastroView>();
             mauiAppBuilder.Services.AddTransient<ComunidadeView>();
+            mauiAppBuilder.Services.AddTransient<EscolhaDificuldadeView>();
             //popups
             mauiAppBuilder.Services.AddTransientPopup<RealizarCompra, LojaViewModel>();
             

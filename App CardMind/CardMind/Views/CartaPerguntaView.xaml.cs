@@ -33,9 +33,9 @@ public partial class CartaPerguntaView : ContentPage
 		lbPergunta.Text = cartaPergunta.Pergunta;
 	}
 
-    private void Button_Clicked(object sender, EventArgs e)
+    private async void Button_Clicked(object sender, EventArgs e)
     {
-		navigationService.NavigateToAsync("CartaResposta", new Dictionary<string, object>
+		await navigationService.NavigateToAsync("CartaResposta", new Dictionary<string, object>
 		{
 			{
 				"CartaPergunta", Carta

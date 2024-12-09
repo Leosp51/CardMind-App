@@ -8,19 +8,21 @@ using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
 
 namespace CardMind.Views;
-[QueryProperty(nameof(Nome), "nomeBaralho")]
+[QueryProperty(nameof(Baralho), "baralho")]
 public partial class BaralhoView : ContentPage
 {
 	private BaralhoViewModel baralhoViewModel;
 
-	private string nome;
-	public string Nome
+	private Baralho baralho = new();
+	public Baralho Baralho
 	{
-		get => nome;
+		get => baralho;
 		set
 		{
-			baralhoViewModel.NomeBaralho = nome =  value;
-			BindingContext = baralhoViewModel;
+			baralho =  value;
+            baralhoViewModel.NomeBaralho = baralho.NomeBaralho;
+			baralhoViewModel.baralho = baralho;
+            BindingContext = baralhoViewModel;
 		}
 	}
 

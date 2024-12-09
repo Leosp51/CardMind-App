@@ -4,7 +4,22 @@
              x:Class="CardMind.Views.CadastroView"
              xmlns:vm="clr-namespace:CardMind.ViewModels"
              x:DataType="vm:CadastroViewModel">
-    <VerticalStackLayout Padding="10">
+
+        <Page.Resources>
+            <Style TargetType="Entry">
+                <Setter Property="Background" Value="#EDEDED"/>
+                <Setter Property="HeightRequest" Value="60"/>
+                <Setter Property="WidthRequest" Value="300"/>
+            </Style>
+
+            <Style TargetType="Border">
+                <Setter Property="Margin" Value="0,20,0,0"/>
+                <Setter Property="WidthRequest" Value="300"/>
+                <Setter Property="BackgroundColor" Value="#EDEDED"/>
+
+            </Style>
+        </Page.Resources>
+        <VerticalStackLayout Padding="10">
         <HorizontalStackLayout>
             <Image
                 Source="espadas.png"
@@ -18,17 +33,40 @@
                 HeightRequest="45"/>
         </HorizontalStackLayout>
         <Label
-            Text="Cadastrar"
+            Text="CADASTRO"
             Margin="20"
             FontSize="30"
             HorizontalOptions="Center"
            />
-        <Entry Placeholder="Nome" Text="{Binding Usuario.NomeUsuario }"/>
-        <Entry Placeholder="Email" Text="{Binding Usuario.Email}"/>
-        <Entry Placeholder="Senha" Text="{Binding Usuario.Senha}"
+        <Border>
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="15,15,15,15" />
+            </Border.StrokeShape>
+            <Entry Placeholder="Apelido" Text="{Binding Usuario.NomeUsuario }"/>
+        </Border>
+            
+        <Border>
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="15,15,15,15" />
+            </Border.StrokeShape>
+            <Entry Placeholder="Email" Text="{Binding Usuario.Email}"/>
+        </Border>
+
+        <Border>
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="15,15,15,15" />
+            </Border.StrokeShape>
+            <Entry Placeholder="Senha" Text="{Binding Usuario.Senha}"
                 BackgroundColor="{Binding Cor}"/>
-        <Entry Placeholder="Confirmar Senha" Text="{Binding ConfirmarSenha}"
+        </Border>
+
+        <Border>
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="15,15,15,15" />
+            </Border.StrokeShape>
+            <Entry Placeholder="Confirmar Senha" Text="{Binding ConfirmarSenha}"
                 BackgroundColor="{Binding Cor}"/>
+        </Border>
         <Button
             Text="Registrar-se"
             Margin="30"

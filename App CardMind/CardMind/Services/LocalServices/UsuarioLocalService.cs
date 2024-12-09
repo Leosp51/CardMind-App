@@ -9,7 +9,7 @@ namespace CardMind.Services.LocalServices
 {
     public class UsuarioLocalService
     {
-        private Usuario usuario;
+        private static Usuario usuario = new Usuario();
         public UsuarioLocalService()
         {
             usuario = new Usuario();
@@ -19,6 +19,10 @@ namespace CardMind.Services.LocalServices
         public void AdicionarBaralho(Baralho baralho)
         {
             usuario.Baralhos.Add(baralho);
+        }
+        public void RemoverBaralho(Baralho baralho)
+        {
+            usuario.Baralhos.Remove(baralho);
         }
         public void UsuarioCarregar() {
 

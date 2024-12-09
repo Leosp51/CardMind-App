@@ -15,7 +15,7 @@ namespace CardMind.Services.LocalServices
             estiloBaralhos.Add(new EstiloBaralho
             {
                 CodEstilo = 1,
-                NomeEstilo = "Estrela",
+                NomeEstilo = "Cósmico",
                 Valor = 10,
                 Img = "estilo_estrela.png",
                 BackgroundImg = "fundo_estrela.png"
@@ -23,7 +23,7 @@ namespace CardMind.Services.LocalServices
             estiloBaralhos.Add(new EstiloBaralho
             {
                 CodEstilo = 2,
-                NomeEstilo = "Rosas",
+                NomeEstilo = "Primavera",
                 Valor = 20,
                 Img = "estilo_rosas.png",
                 BackgroundImg = "fundo_rosas.png"
@@ -31,7 +31,7 @@ namespace CardMind.Services.LocalServices
             estiloBaralhos.Add(new EstiloBaralho
             {
                 CodEstilo = 3,
-                NomeEstilo = "Gato",
+                NomeEstilo = "Felinos",
                 Valor = 10,
                 Img = "estilo_gato.png",
                 BackgroundImg = "fundo_gatos.png"

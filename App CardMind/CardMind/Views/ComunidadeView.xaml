@@ -20,19 +20,20 @@
                 Trofeus="{Binding TrofeusUsuario}"
             />
         <Label 
-            Text="Comunidade"
+            Text="COMUNIDADE"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <SearchBar
-            WidthRequest="250"
-            HorizontalOptions="Center"/>
+            HorizontalOptions="Center" 
+            FontSize="Medium"
+            Margin="0,20,0,0"/>
         <Image
             Source="arte_manutencao.png"
-            HeightRequest="300"/>
+            HeightRequest="200"
+            Margin="0,120,0,0"/>
         <Label
             Text="Em Manutenção"
             FontSize="Medium"
             HorizontalOptions="Center"
-            FontAttributes="Bold"/>
+            FontAttributes="Bold"
+            TextColor="#909090"/>
     </VerticalStackLayout>
 </ContentPage>

@@ -19,9 +19,10 @@
             Dinheiro="{Binding DinheiroUsuario}"
             Trofeus="{Binding TrofeusUsuario}"/>
         <Label
-            Text="Baralhos"
+            Text="BARALHOS"
             HorizontalOptions="Center"
-            FontSize="Medium"/>
+            FontSize="Medium"
+            Margin="0,10,0,10"/>
         <HorizontalStackLayout
             HorizontalOptions="Center">
             <SearchBar
@@ -32,42 +33,71 @@
                 HeightRequest="40"
                 WidthRequest="40"
                 CornerRadius="10"
-                Command="{Binding ShowPopupCommand}"/>
+                Command="{Binding ShowPopupCommand}"
+                Margin="12,0,0,0"/>
 
         </HorizontalStackLayout>
         <ScrollView
             Padding="4">
             <CollectionView x:Name="CollectionBaralhos"
                             SelectionMode="Single"
-                            ItemsSource="{Binding NomesBaralhos}"
+                            ItemsSource="{Binding Baralhos}"
                             SelectedItem="{Binding Item}"
                             SelectionChangedCommand="{Binding BaralhoSelecionadoCommand}"
                             SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:RelativeSource Self}}"
                             WidthRequest="400"
                             HorizontalOptions="Center">
                 <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <HorizontalStackLayout Spacing="10" HeightRequest="50" WidthRequest="350">
+                    <DataTemplate x:DataType="models:Baralho">
+                        <HorizontalStackLayout Spacing="10" HeightRequest="60" WidthRequest="350" Margin="0,0,0,20">
                             <Border
                                 Stroke="Red"
                                 StrokeThickness="4"
                                 Padding="5"
-                                WidthRequest="350"
-                                MaximumHeightRequest="200">
+                                WidthRequest="300"
+                                MaximumHeightRequest="200"
+                                >
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="20,20,20,20"/>
                                 </Border.StrokeShape>
-                                <HorizontalStackLayout>
-                                    <Image
-                                        Source="brasil_linguagem.png"
-                                        Aspect="AspectFill"
-                                        HeightRequest="50"
-                                        WidthRequest="50"/>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BaralhosViewModel}}, Path=BaralhoSelecionadoCommand}"
+                                                      CommandParameter="{Binding .}"/>
+                                </Border.GestureRecognizers>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image 
+                                            Grid.Column="0"
+                                            Source="baralho.png"
+                                            Aspect="AspectFill"
+                                            WidthRequest="40"
+                                            HeightRequest="40"
+                                            HorizontalOptions="Start"/>
+
                                     <Label
-                                        Text="{Binding .}"
+                                        Grid.Column="1"
+                                        Text="{Binding NomeBaralho}"
                                         FontSize="25"
-                                        />
-                                </HorizontalStackLayout>
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center"/>
+
+                                    <ImageButton
+                                            Grid.Column="2"
+                                            HeightRequest="20"
+                                            WidthRequest="20"
+                                            HorizontalOptions="End"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BaralhosViewModel}}, Path=RemoverBaralhoCommand}"
+                                            CommandParameter="{Binding .}"
+                                            Source="remover.png"/>
+                                </Grid>
                             </Border>
                         </HorizontalStackLayout>
                     </DataTemplate>

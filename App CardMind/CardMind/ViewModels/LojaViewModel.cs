@@ -63,6 +63,8 @@ namespace CardMind.ViewModels
                     estilosLocalService.estiloBaralhos.Remove(estilo);
                     usuarioLocalService.AdicionarEstilo(estilo);
                     List<EstiloBaralho> est = estilosLocalService.estiloBaralhos;
+                    Estilos.Clear();
+                    
                     foreach (var item in est)
                     {
                         Estilos.Add(item);

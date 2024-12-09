@@ -19,11 +19,14 @@
             Dinheiro="{Binding DinheiroUsuario}"
             Trofeus="{Binding TrofeusUsuario}"/>
         <Label
-            Text="Conquistas"
+            Text="CONQUISTAS"
             FontSize="Medium"
             HorizontalOptions="Center"
+            Margin="0,20,0,0"
+            FontFamily="inrial"
             />
         <ScrollView
+            HeightRequest="500"
             Padding="10">
             <CollectionView ItemsSource="{Binding Conquistas}"
                             WidthRequest="300">
@@ -31,25 +34,31 @@
                     <DataTemplate x:DataType="models:Conquista">
                         <Border
                             Stroke="Gray"
-                            StrokeThickness="2">
+                            StrokeThickness="2"
+                            Margin="0,20,0,0">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10,10,10,10" />
+                            </Border.StrokeShape>
                             <HorizontalStackLayout>
                                 <Frame
-                                    WidthRequest="200"
-                                    BorderColor="White">
+                                    WidthRequest="210"
+                                    BorderColor="White"
+                                    Margin="0,20,0,0"
+                                    HeightRequest="110">
                                     <HorizontalStackLayout>
-                                        <Image
-                                            Source="espadas.png"
-                                            HeightRequest="15"
-                                            WidthRequest="15"
-                                            Margin="10"/>
                                         <VerticalStackLayout>
                                             <Label
                                                 Text="{Binding NomeConquista}"
                                                 FontSize="15"
-                                                FontAttributes="Bold"/>
+                                                FontAttributes="Bold"
+                                                Margin="0,0,0,0"
+                                                />
                                             <Label
                                                 Text="{Binding Objetivo}"
-                                                FontSize="15"/>
+                                                FontSize="15"
+                                                WidthRequest="130"
+                                                HeightRequest="100"
+                                                Margin="0,0,0,0"/>
                                         </VerticalStackLayout>
                                     </HorizontalStackLayout>
                                 </Frame>
@@ -61,6 +70,7 @@
                                     CommandParameter="{Binding .}"
                                     HeightRequest="40"
                                     CornerRadius="20"
+                   
                                     />
                             </HorizontalStackLayout>
 

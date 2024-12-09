@@ -24,15 +24,12 @@ namespace CardMind.ViewModels
         [ObservableProperty]
         public ObservableCollection<Baralho> baralhos;
         [ObservableProperty]
-        public string item = "a";
-        [ObservableProperty]
-        public ObservableCollection<string> nomesBaralhos = new ObservableCollection<string>();
+        public Baralho item = new Baralho();
         [ObservableProperty]
         public string dinheiroUsuario;
         [ObservableProperty]
         public string trofeusUsuario;
 
-        public Dictionary<string,Baralho> data = new Dictionary<string,Baralho>();
 
         private readonly IPopupService popupService;
         private UsuarioLocalService usuarioLocalService;
@@ -48,18 +45,17 @@ namespace CardMind.ViewModels
             {
                 var baralho = (Baralho)result;
                 Baralhos.Add(baralho);
-                NomesBaralhos.Add(baralho.NomeBaralho);
-                data.TryAdd(baralho.NomeBaralho, baralho);
+                usuarioLocalService.AdicionarBaralho(baralho);
             }
         }
         [RelayCommand]
-        public async Task BaralhoSelecionado(string nomeBaralho)
+        public async Task BaralhoSelecionado(Baralho baralho)
         {
-            Item = "a";
+            Item = new Baralho();
             await navigationService.NavigateToAsync("Baralho",
                 new Dictionary<string, object>
                 {
-                    {"nomeBaralho", nomeBaralho}
+                    {"baralho", baralho}
                 });
         }
         [RelayCommand]
@@ -68,6 +64,12 @@ namespace CardMind.ViewModels
             DinheiroUsuario = sistemaRecompensa.Dinheiro.ToString();
             TrofeusUsuario = sistemaRecompensa.Trofeus.ToString();
         }
+        [RelayCommand]
+        public void RemoverBaralho(Baralho baralho)
+        {
+            Baralhos.Remove(baralho);
+        }
+
         public BaralhosViewModel(IPopupService popupService,
                                  UsuarioLocalService usuarioLocalService,
                                  INavigationService navigationService,
@@ -78,6 +80,13 @@ namespace CardMind.ViewModels
             this.popupService = popupService;
             this.sistemaRecompensa = sistemaRecompensa;
             this.usuarioLocalService = usuarioLocalService;
+
+
+            List<Baralho> bars = usuarioLocalService.PegarBaralhos();
+            foreach(var baralho in bars)
+            {
+                Baralhos.Add(baralho);
+            }
         }
 
     }

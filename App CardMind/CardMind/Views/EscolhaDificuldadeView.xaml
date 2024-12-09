@@ -2,14 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CardMind.Views.EscolhaDificuldadeView"
-             Title="EscolhaDificuldadeView"
              xmlns:control="clr-namespace:CardMind.Controls">
     <VerticalStackLayout>
         <control:Header
             x:Name="header"
             />
         <Border
-            Padding="50"
+            Padding="0"
             Stroke="Red">
             <VerticalStackLayout>
                 <Label
@@ -20,14 +19,18 @@
                 <Frame
                     Padding="2"
                     BorderColor="Red"
+                    WidthRequest="340"
                     HeightRequest="400">
                     <VerticalStackLayout>
                         <Label
                             x:Name="lbResposta"
                             Text="Qual foi o nível de dificuldade ao concluir esta carta?"
-                            FontSize="25" />
+                            FontSize="25" 
+                            HorizontalOptions="Center"/>
                         <Label
                             Text="Ser Notificado em :"
+                            HorizontalOptions="Center"
+                            Margin="0,10,0,10"
                             />
                         <HorizontalStackLayout>
                             <Label
@@ -54,6 +57,7 @@
                                     <ImageButton
                                         HeightRequest="25"
                                         Source="espadas.png"/>
+                                    <!-- Muito possivelmente eu mexa nas ImageButton-->
                                 </HorizontalStackLayout>
                             </Border>
                             <Label

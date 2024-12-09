@@ -9,7 +9,7 @@ namespace CardMind.Services.ApiCardMind
 {
     public class AutenticationService
     {
-        private Usuario usuario;
+        private static Usuario usuario;
         public AutenticationService() {
             //Trocar por autenticação com API
             usuario = new Usuario();
@@ -25,10 +25,10 @@ namespace CardMind.Services.ApiCardMind
             usuario.Email = email;
             usuario.Senha = senha;
             //inserir usuario por meio da api
-            Preferences.Set("nomeUsuario", nome);
-            Preferences.Set("emailUsuario", email);
-            Preferences.Set("senhaUsuario", senha);
-            Preferences.Set("statusUsuario","cadastrado");
+            Preferences.Default.Set("nomeUsuario", nome);
+            Preferences.Default.Set("emailUsuario", email);
+            Preferences.Default.Set("senhaUsuario", senha);
+            Preferences.Default.Set("statusUsuario","cadastrado");
         }
         public bool Validacao(string email, string senha)
         {

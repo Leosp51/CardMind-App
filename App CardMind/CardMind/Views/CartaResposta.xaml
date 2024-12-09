@@ -23,9 +23,13 @@
                     HeightRequest="400">
                     <Label
                     x:Name="lbResposta"
-                    FontSize="20"/> 
+                    FontSize="20"/>
                 </Frame>
-
+                <Button
+                    Text="Finalizar"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    Clicked="Button_Clicked"/>
             </VerticalStackLayout>
         </Border>
     </VerticalStackLayout>

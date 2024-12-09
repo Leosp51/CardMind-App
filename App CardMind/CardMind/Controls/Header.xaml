@@ -12,13 +12,17 @@
                 <Label
                     x:Name="lbNome"
                     FontSize="15"
-                    TextColor="White"/>
+                    TextColor="White"
+                    Text="Olá, Usuario"
+                    FontAttributes="Bold"/>
                 <Border
                     Stroke="Red"
                     WidthRequest="155">
                 </Border>
                 <Image
-                    Source="trofeu.png"/>
+                    Source="trofeu_amarelo.png"
+                    Margin="-75,0,0,0"
+                    />
                 <Label
                     x:Name="lbTrofeu"
                     TextColor="White"
