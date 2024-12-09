@@ -18,7 +18,8 @@ namespace CardMind.Services.LocalServices
                 NomeEstilo = "Cósmico",
                 Valor = 10,
                 Img = "estilo_estrela.png",
-                BackgroundImg = "fundo_estrela.png"
+                BackgroundImg = "fundo_estrela.png",
+                TextColor = "White"
             });
             estiloBaralhos.Add(new EstiloBaralho
             {
@@ -26,7 +27,8 @@ namespace CardMind.Services.LocalServices
                 NomeEstilo = "Primavera",
                 Valor = 20,
                 Img = "estilo_rosas.png",
-                BackgroundImg = "fundo_rosas.png"
+                BackgroundImg = "fundo_rosas.png",
+                TextColor = "White"
             });
             estiloBaralhos.Add(new EstiloBaralho
             {
@@ -34,7 +36,8 @@ namespace CardMind.Services.LocalServices
                 NomeEstilo = "Felinos",
                 Valor = 10,
                 Img = "estilo_gato.png",
-                BackgroundImg = "fundo_gatos.png"
+                BackgroundImg = "fundo_gatos.png",
+                TextColor = "White"
             });
         }
     }

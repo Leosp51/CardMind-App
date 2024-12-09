@@ -12,16 +12,19 @@ namespace CardMind.Models
         public int CodBaralho { get; set; }
         public int CodEstilo { get; set; }
         public List<Carta> Cartas { get; set; }
+        public EstiloBaralho EstiloBaralho { get; set; }
 
         //Construtor para teste abaixo
         public Baralho(string nome, int codigo)
         {
             NomeBaralho = nome;
             CodBaralho = codigo;
+            EstiloBaralho = new EstiloBaralho();
         }
         public Baralho() {
             NomeBaralho = string.Empty;
             Cartas = new List<Carta>();
+            EstiloBaralho = new EstiloBaralho();
         }
     }
 }

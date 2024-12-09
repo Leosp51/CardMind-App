@@ -58,20 +58,41 @@
                                 <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaralhoViewModel}}, Path=AbrirCartaCommand}"
                                                       CommandParameter="{Binding .}"/>
                             </Border.GestureRecognizers>
-                            
-                            <HorizontalStackLayout Margin="0,0,0,0">
-                                    <Image
-                                        Source="carta.png"
-                                        Aspect="AspectFill"
-                                        WidthRequest="40"
-                                        HeightRequest="40"
-                                        Margin="5,0,5,0"/>
-                                    <Label
-                                        Text="{Binding NomeCarta}"
-                                        FontSize="25"
-                                        />
-                                </HorizontalStackLayout>
-                            </Border>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image 
+                                    Grid.Column="0"
+                                    Source="carta.png"
+                                    Aspect="AspectFill"
+                                    WidthRequest="40"
+                                    HeightRequest="40"
+                                    HorizontalOptions="Start"/>
+
+                                <Label
+                                    Grid.Column="1"
+                                    Text="{Binding NomeCarta}"
+                                    FontSize="25"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"/>
+
+                                <ImageButton
+                                    Grid.Column="2"
+                                    HeightRequest="20"
+                                    WidthRequest="20"
+                                    HorizontalOptions="End"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaralhoViewModel}}, Path=ApagarCartaCommand}"
+                                    CommandParameter="{Binding .}"
+                                    Source="remover.png"/>
+                            </Grid>
+                        </Border>
                         </HorizontalStackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

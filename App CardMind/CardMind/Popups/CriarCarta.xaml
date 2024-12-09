@@ -22,7 +22,7 @@
                 <Frame BorderColor="Red">
                     <Entry
                     x:Name="NomeEntry"
-                    Placeholder="Ex: Historia"/>
+                    Placeholder="Ex: Escravidâo no Brasil"/>
                 </Frame>
                 <HorizontalStackLayout
                     HorizontalOptions="Center">

@@ -2,7 +2,9 @@
 <toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CardMind.Popups.CriarBaralho"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Name="this"
+             BindingContext="this">
     <Frame
         BackgroundColor="White"
         BorderColor="Red"
@@ -27,13 +29,10 @@
                     Text="Estilo"
                     Margin="0,10,0,5"/>
                 <Frame BorderColor="Red">
-                    <Picker x:Name="PickerEstilo">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Nenhum</x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
-                    </Picker>
+                    <Picker x:Name="PickerEstilo"
+                            Title="Selecione o estilo"
+                            ItemsSource="{Binding estilos}"
+                            ItemDisplayBinding="{Binding NomeEstilo}"/>
                 </Frame>
             </VerticalStackLayout>
             <Button

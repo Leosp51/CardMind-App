@@ -17,7 +17,7 @@
                     FontAttributes="Bold"/>
                 <Border
                     Stroke="Red"
-                    WidthRequest="155">
+                    WidthRequest="225">
                 </Border>
                 <Image
                     Source="trofeu_amarelo.png"

@@ -22,7 +22,11 @@ namespace CardMind.ViewModels
         [ObservableProperty]
         public string itemSelecionado = "nenhum";
         [ObservableProperty]
-        public string item = "a" ;
+        public string item = "a";
+        [ObservableProperty]
+        public string nomeUsuario = "";
+        [ObservableProperty]
+        public string email = "";
         
         private INavigationService navigationService;
 
@@ -60,6 +64,12 @@ namespace CardMind.ViewModels
                 {
                     {"nome", nome},
                 });
+        }
+        [RelayCommand]
+        public void Appearing()
+        {
+            NomeUsuario = Preferences.Default.Get("nomeUsuario","guest");
+            Email = Preferences.Default.Get("emailUsuario", "guest");
         }
     }
 }

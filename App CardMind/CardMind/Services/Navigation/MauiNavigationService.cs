@@ -13,7 +13,7 @@ namespace CardMind.Services.Navigation
             string status = Preferences.Default.Get<string>("statusUsuario", "primeiraVez");
             if (status == "primeiraVez")
                 return NavigateToAsync("//Cadastro");
-            else if (status == "cadastrado")
+            else if (status == "cadastrado" || status == "logado")
                 return NavigateToAsync("//Menu/Home");
             else
                 return NavigateToAsync("//Login");
@@ -29,7 +29,7 @@ namespace CardMind.Services.Navigation
 
         public Task PopAsync()
         {
-            throw new NotImplementedException();
+            return Shell.Current.CurrentPage.Navigation.PopToRootAsync();
         }
         
     }

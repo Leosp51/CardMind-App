@@ -85,7 +85,33 @@ namespace CardMind.ViewModels
         {
             DinheiroUsuario = sistemaRecompensa.Dinheiro.ToString();
             TrofeusUsuario = sistemaRecompensa.Trofeus.ToString();
+
         }
 
+        public void CarregarCartas()
+        {
+            Cartas.Clear();
+            List<Carta> cards = baralho.Cartas;
+            foreach (Carta carta in cards)
+            {
+                Cartas.Add(carta);
+            }
+        }
+        [RelayCommand]
+        public async Task ApagarCarta(Carta carta)
+        {
+            var popup = new ConfirmarExclusaoPopup(carta.NomeCarta);
+            var result = await Shell.Current.CurrentPage.ShowPopupAsync(popup);
+            if (result != null)
+            {
+                if (result.Equals(true))
+                {
+                    usuarioLocalService.RemoverBaralho(baralho);
+                    baralho.Cartas.Remove(carta);
+                    usuarioLocalService.AdicionarBaralho(baralho);
+                    CarregarCartas();
+                }
+            }
+        }
     }
 }

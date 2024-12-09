@@ -22,6 +22,7 @@ public partial class BaralhoView : ContentPage
 			baralho =  value;
             baralhoViewModel.NomeBaralho = baralho.NomeBaralho;
 			baralhoViewModel.baralho = baralho;
+			baralhoViewModel.CarregarCartas();
             BindingContext = baralhoViewModel;
 		}
 	}
@@ -29,8 +30,9 @@ public partial class BaralhoView : ContentPage
 	public BaralhoView( BaralhoViewModel baralhoViewModel)
 	{
 		InitializeComponent();
-		BindingContext = baralhoViewModel;
-		this.baralhoViewModel = baralhoViewModel;
+
+        this.baralhoViewModel = baralhoViewModel;
+        BindingContext = baralhoViewModel;
 
 	}
 

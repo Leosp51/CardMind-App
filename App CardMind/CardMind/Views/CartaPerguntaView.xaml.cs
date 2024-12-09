@@ -16,6 +16,16 @@ public partial class CartaPerguntaView : ContentPage
 			UpdateUI();
 		}
 	}
+	private EstiloBaralho estiloBaralho = new();
+	public EstiloBaralho Estilo
+	{
+		get => estiloBaralho;
+		set
+		{
+			estiloBaralho = value;
+
+		}
+	}
 
 	private SistemaRecompensa sistemaRecompensa = new();
 	private INavigationService navigationService;
@@ -31,6 +41,10 @@ public partial class CartaPerguntaView : ContentPage
 	{
 		lbNomeCarta.Text = cartaPergunta.NomeCarta;
 		lbPergunta.Text = cartaPergunta.Pergunta;
+	}
+	void UpdateCardEstile()
+	{
+
 	}
 
     private async void Button_Clicked(object sender, EventArgs e)

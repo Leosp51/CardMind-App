@@ -11,6 +11,9 @@ using CardMind.Models;
 using CardMind.Services;
 using CardMind.Services.ApiCardMind;
 using CardMind.Services.Navigation;
+using System.Text.RegularExpressions;
+using CommunityToolkit.Maui.Views;
+using CardMind.Popups;
 
 namespace CardMind.ViewModels
 {
@@ -28,7 +31,7 @@ namespace CardMind.ViewModels
         [ObservableProperty]
         public string cor = "White";
         [ObservableProperty]
-        public bool validado = false;
+        public bool isChecked = false;
 
         private UsuarioService usuarioService;
 
@@ -37,6 +40,7 @@ namespace CardMind.ViewModels
             this.usuarioService = usuarioService;
             this._navigationService = navigationService;
             this.autenticationService = autenticationService;
+            
         }
         //[RelayCommand]
         public void Adicionar(Usuario user)
@@ -46,42 +50,89 @@ namespace CardMind.ViewModels
         [RelayCommand]
         public async Task Validar()
         {
-            bool valido = true;
             Message = string.Empty;
-            if (Usuario.NomeUsuario == null || Usuario.Email == null || Usuario.Senha == null || ConfirmarSenha == null)
+            if (string.IsNullOrWhiteSpace(Usuario.Email)  || string.IsNullOrWhiteSpace(Usuario.Senha) || string.IsNullOrWhiteSpace(ConfirmarSenha) || string.IsNullOrWhiteSpace(Usuario.NomeUsuario))
             {
-                Message += "Preencha os campos!";
-                valido = false;
+                Message += "Preencha todos os campos!\n";
             }
-            else if (Usuario.Senha != ConfirmarSenha)
+            if (string.IsNullOrWhiteSpace(Message))
+            {
+                Message += ValidarEmail(Usuario.Email);
+                Message += ValidarSenha(Usuario.Senha);
+            }
+            if (Usuario.Senha != ConfirmarSenha && string.IsNullOrWhiteSpace(Message))
                 {
                     Message += "Senhas diferentes!\n";
                     Cor = "Red";
-                    valido = false;
                 }
             else
                 {
                     if (Usuario.Senha == null)
                     {
                         Message += "Insira a senha!";
-                        valido = false;
                     }
                     if (ConfirmarSenha == null)
                     {
                         Message += "Confirme a senha";
-                        valido = false;
                     }
                 }
             
-            if (valido)
+            if (string.IsNullOrEmpty(Message))
             {
 
                 //verificar se o post ocorreu como esperado; trocar depois código abaixo
-                autenticationService.InserirUsuario("a", "a", "a");
+                autenticationService.InserirUsuario(Usuario.NomeUsuario, Usuario.Email, Usuario.Senha);
 
                 await _navigationService.NavigateToAsync("//Menu/Home");
             }
-            Validado = valido;
+        }
+
+        public static string ValidarEmail(string email)
+        {
+
+            // Expressão regular para validar um formato de e-mail básico
+            var regex = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
+
+            // Verifica se o e-mail corresponde ao padrão
+            if (regex.IsMatch(email))
+            {
+                return string.Empty; // E-mail válido
+            }
+            else
+            {
+                return "Email inválido \n"; // E-mail inválido
+            }
+        }
+        public string ValidarSenha(string senha)
+        {
+            // Verifica se a senha possui pelo menos 5 caracteres
+            if (senha.Length < 5)
+            {
+                return "A senha deve ter pelo menos 5 caracteres. \n";
+            }
+
+            // Verifica se a senha contém pelo menos um número
+            if (!senha.Any(char.IsDigit))
+            {
+                return "A senha deve conter pelo menos um número.\n";
+            }
+
+            // Verifica se a senha contém pelo menos uma letra maiúscula
+            if (!senha.Any(char.IsUpper))
+            {
+                return "A senha deve conter pelo menos uma letra maiúscula. \n";
+            }
+
+            // Se todas as condições foram atendidas, retorna uma string vazia (senha válida)
+            return string.Empty;
+
+        }
+        [RelayCommand]
+        public async Task VerTermos()
+        {
+            var popup = new TermosPopup();
+            await Shell.Current.CurrentPage.ShowPopupAsync(popup);
+
         }
     }
 }

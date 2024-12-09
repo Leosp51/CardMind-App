@@ -28,8 +28,7 @@ namespace CardMind.ViewModels
         {
             bool valido = autenticationService.Validacao(Email, Password);
             if (valido){
-                Preferences.Set("statusUsuario", "cadastro");
-                Email = Password = "";
+                Preferences.Set("statusUsuario", "logado");
                 await navigationService.NavigateToAsync("//Menu/Home");
             }
             else
@@ -42,8 +41,11 @@ namespace CardMind.ViewModels
             this.navigationService = navigationService;
             this.usuarioService = usuarioService;
             this.autenticationService = autenticationService;
+        }
+        public void Appearing()
+        {
             Email = string.Empty;
-            Password = string.Empty;
+            Password = string.Empty ;
         }
     }
 }

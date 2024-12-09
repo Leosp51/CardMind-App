@@ -9,8 +9,9 @@
         <controls:Header
             x:Name="header"/>
         <Border
-        Padding="50"
-        Stroke="Red">
+        Padding="0"
+        Stroke="Red"
+            Margin="10">
             <VerticalStackLayout>
                 <Label
                     x:Name="lbNomeCarta"
@@ -18,16 +19,20 @@
                     FontAttributes="Bold"
                     HorizontalTextAlignment="Center"/>
                 <Frame
-                    Padding="2"
+                    Padding="30"
                     BorderColor="Red"
+                    WidthRequest="340"
                     HeightRequest="400">
                     <Label
                     x:Name="lbResposta"
                     FontSize="20"/>
                 </Frame>
                 <Button
-                    Text="Finalizar"
+                    Text="FINALIZAR"
+                    FontAttributes="Bold"
+                    FontSize="20"
                     BackgroundColor="Red"
+                    Margin="10"
                     TextColor="White"
                     Clicked="Button_Clicked"/>
             </VerticalStackLayout>

@@ -3,32 +3,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CardMind.Views.CartaTextoView"
              xmlns:controls="clr-namespace:CardMind.Controls">
-    <VerticalStackLayout>
+    <VerticalStackLayout
+        >
         <controls:Header
             x:Name="header"/>
-        <Frame
-            Padding="50"
-            BorderColor="Red"
-            WidthRequest="500">
+        <Border
+            Margin="20,10,10,10"
+            Stroke="Red"
+            WidthRequest="350"
+            >
             <VerticalStackLayout>        
                 <Label
                     x:Name="lbNomeCarta"
-                    HorizontalOptions="Center"
+                    FontSize="Large"
                     FontAttributes="Bold"
-                    FontSize="Large"/>
+                    HorizontalTextAlignment="Center"/>
                 <Frame
+                    Padding="30"
                     BorderColor="Red"
-                    HorizontalOptions="Center"
-                    Padding="5"
                     HeightRequest="400">
                     <Label
                         x:Name="lbTexto"
                         FontSize="20"
-                        MaximumWidthRequest="250"
                     />
                 </Frame>
+                <Button
+                    
+                    Text="VOLTAR"
+                    FontAttributes="Bold"
+                    Margin="10"
+                    FontSize="20"
+                    TextColor="White"
+                    BackgroundColor="Red"
+                    VerticalOptions="End"
+                    Clicked="Voltar"
+                    Padding="5"
+                    />
             </VerticalStackLayout>
-        </Frame>
+        </Border>
 
     </VerticalStackLayout>
 </ContentPage>

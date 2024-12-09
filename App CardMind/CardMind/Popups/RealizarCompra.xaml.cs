@@ -18,8 +18,8 @@ public partial class RealizarCompra : Popup
 	public RealizarCompra(int valor, string nomeEstilo)
 	{
 		InitializeComponent();
-		lbPergunta.Text = "Quer comprar o estilo " + nomeEstilo + " por ";
-		lbValor.Text = valor.ToString();
+		lbPergunta.Text = "Comprar o estilo " + nomeEstilo + " por ";
+		lbValor.Text = valor.ToString() + "?";
 
 		valorEstilo = valor;
 		this.nomeEstilo = nomeEstilo;
@@ -35,6 +35,6 @@ public partial class RealizarCompra : Popup
 	}
 	private void Recusar(object sender, EventArgs e)
 	{
-		Close(false);
+		Close();
 	}
 }

@@ -16,16 +16,22 @@
                     x:Name="lbPergunta"
                     FontSize="Small"
                     />
-                <Image
-                    Source="moeda.png"
-                    HeightRequest="10"/>
-                <Label
-                    x:Name="lbValor"
-                    FontSize="20"
-                    />
             </HorizontalStackLayout>
             <HorizontalStackLayout
                 HorizontalOptions="Center">
+
+                <Image
+                    Source="moeda.png"
+                    HeightRequest="15"/>
+                <Label
+                    x:Name="lbValor"
+                    FontSize="20"
+                    Margin="5"
+                    />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout
+                HorizontalOptions="Center"
+                Margin="5">
                 <Button
                     x:Name="btnSim"
                     Text="Sim"

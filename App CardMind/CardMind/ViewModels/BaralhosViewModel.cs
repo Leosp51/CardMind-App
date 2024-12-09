@@ -39,7 +39,8 @@ namespace CardMind.ViewModels
         [RelayCommand]
         public async Task ShowPopup()
         {
-            var popup = new CriarBaralho();
+            List<EstiloBaralho> estilos = usuarioLocalService.PegarEstilos();
+            var popup = new CriarBaralho(estilos);
             var result = await Shell.Current.CurrentPage.ShowPopupAsync(popup);
             if (result != null)
             {
@@ -63,11 +64,20 @@ namespace CardMind.ViewModels
         {
             DinheiroUsuario = sistemaRecompensa.Dinheiro.ToString();
             TrofeusUsuario = sistemaRecompensa.Trofeus.ToString();
+            CarregarBaralho();
         }
         [RelayCommand]
-        public void RemoverBaralho(Baralho baralho)
+        public async Task RemoverBaralho(Baralho baralho)
         {
-            Baralhos.Remove(baralho);
+            var popup = new ConfirmarExclusaoPopup(baralho.NomeBaralho);
+            var result = await Shell.Current.CurrentPage.ShowPopupAsync(popup);
+            if(result != null)
+            {
+                if(result.Equals(true)){
+                    usuarioLocalService.RemoverBaralho(baralho);
+                    CarregarBaralho();
+                }
+            }
         }
 
         public BaralhosViewModel(IPopupService popupService,
@@ -89,5 +99,14 @@ namespace CardMind.ViewModels
             }
         }
 
+        public void CarregarBaralho()
+        {
+            Baralhos.Clear();
+            List<Baralho> bars = usuarioLocalService.PegarBaralhos();
+            foreach(var baralho in bars)
+            {
+                Baralhos.Add(baralho);
+            }
+        }
     }
 }

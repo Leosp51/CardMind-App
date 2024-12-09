@@ -29,6 +29,10 @@ public partial class CartaTextoView : ContentPage
 		lbTexto.Text = Carta.Texto;
 		
 	}
+	private void Voltar(object sender, EventArgs e)
+	{
+		Shell.Current.CurrentPage.Navigation.PopAsync();
+	}
     protected override void OnAppearing()
     {
         header.Dinheiro = sistemaRecompensa.Dinheiro.ToString();

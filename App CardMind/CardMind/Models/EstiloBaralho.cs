@@ -13,6 +13,7 @@ namespace CardMind.Models
         public int Valor { get; set; }
         public string Img {  get; set; }
         public string BackgroundImg { get; set; }
+        public string TextColor { get; set; }
 
         public EstiloBaralho(int codEstilo, string nomeEstilo, int valor)
         {

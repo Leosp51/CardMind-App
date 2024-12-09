@@ -20,7 +20,8 @@
             </Style>
         </Page.Resources>
         <VerticalStackLayout Padding="10">
-        <HorizontalStackLayout>
+        <HorizontalStackLayout
+            HorizontalOptions="Center">
             <Image
                 Source="espadas.png"
                 HeightRequest="45"/>
@@ -57,7 +58,9 @@
                 <RoundRectangle CornerRadius="15,15,15,15" />
             </Border.StrokeShape>
             <Entry Placeholder="Senha" Text="{Binding Usuario.Senha}"
-                BackgroundColor="{Binding Cor}"/>
+                BackgroundColor="{Binding Cor}"
+                   IsPassword="True"
+                />
         </Border>
 
         <Border>
@@ -65,20 +68,44 @@
                 <RoundRectangle CornerRadius="15,15,15,15" />
             </Border.StrokeShape>
             <Entry Placeholder="Confirmar Senha" Text="{Binding ConfirmarSenha}"
-                BackgroundColor="{Binding Cor}"/>
+                BackgroundColor="{Binding Cor}"
+                   IsPassword="True"/>
         </Border>
         <Button
             Text="Registrar-se"
             Margin="30"
             BackgroundColor="Red"
             TextColor="White"
-            Command="{Binding ValidarCommand}"/>
+            Command="{Binding ValidarCommand}"
+            />
+        
         <Label
+            Margin="30,0,0,0"
             Text="{Binding Message}"
             TextColor="Red"/>
-        <Label
-            x:Name="LbCadastro"
-            Text=""
-            IsVisible="{Binding Validado}"/>
+
+        <HorizontalStackLayout>
+
+            <CheckBox
+            IsChecked="{Binding IsChecked}"
+            />
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Ao fazer, você concorda com nossos"/>
+                        <Span
+                            Text="Termos de Uso e Política de Privacidade"
+                            TextColor="Red"
+                            >
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding VerTermosCommand}"
+                                    />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
