@@ -2,44 +2,80 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CardMind.Views.CartaPerguntaView"
-             xmlns:controls="clr-namespace:CardMind.Controls">
+             xmlns:controls="clr-namespace:CardMind.Controls"
+             Shell.NavBarIsVisible="False"
+             x:Name="this"
+             BindingContext="{x:Reference this}">
     
     <VerticalStackLayout>
         <controls:Header
             x:Name="header"/>
+        <ImageButton
+            Source="seta_preta.png"
+            HorizontalOptions="Start"
+            HeightRequest="20"
+            WidthRequest="30"
+            Margin="10,10,0,0"
+            Clicked="Voltar"
+    />
         <Border
+            x:Name="borderBox"
             Margin="10"
             Stroke="Red"
             >
-            <VerticalStackLayout>
-                <Label
-                    x:Name="lbNomeCarta"
-                    FontSize="Large"
-                    FontAttributes="Bold"
-                    HorizontalTextAlignment="Center"/>
-                <Frame
-                    Padding="30"
-                    BorderColor="Red"
-                    HeightRequest="400"
-                    Background="Transparent"
-                    
-                    >
-                    <Label
-                        x:Name="lbPergunta"
-                        FontSize="20"/>
-                </Frame>
+            <Grid>
+                <Image x:Name="imgFundo" 
+                    Source="white.jpg" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+           AbsoluteLayout.LayoutBounds="1,0,1,1"
+           AbsoluteLayout.LayoutFlags="All"/>
 
-                <Button
-                    Text="VER RESPOSTAS"
-                    FontAttributes="Bold"
-                    Margin="10"
-                    FontSize="20"
-                    TextColor="White"
-                    BackgroundColor="Red"
-                    VerticalOptions="End"
-                    Clicked="Button_Clicked"
-                    Padding="5"/>
-            </VerticalStackLayout>
+                <Grid>
+                    <!-- Linha 1: Label lbNomeCarta -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label
+                        x:Name="lbNomeCarta"
+                        Grid.Row="0"
+                        FontSize="Title"
+                        VerticalOptions="Center"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"/>
+
+                    <!-- Linha 2: Frame com Label lbPergunta -->
+                    <Frame
+                        x:Name="frContent"
+                        Grid.Row="1"
+                        Padding="30"
+                        BorderColor="Red"
+                        BackgroundColor="Transparent"
+                        HeightRequest="300">
+                        <Label
+                            x:Name="lbPergunta"
+                            TextColor="Black"
+                            FontSize="20"/>
+                    </Frame>
+
+                    <!-- Linha 3: Button -->
+                    <Button
+                        x:Name="btn"
+                        TextColor="White"
+                        Grid.Row="2"
+                        BackgroundColor="Red"
+                        Text="VER RESPOSTAS"
+                        FontAttributes="Bold"
+                        Margin="10,30,10,10"
+                        FontSize="20"
+                        VerticalOptions="End"
+                        Clicked="Button_Clicked"
+                        Padding="5"/>   
+                </Grid>
+
+            </Grid>
         </Border>
     </VerticalStackLayout>
 </ContentPage>

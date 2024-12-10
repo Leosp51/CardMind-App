@@ -38,7 +38,9 @@
 
         </HorizontalStackLayout>
         <ScrollView
-            Padding="4">
+            Padding="6"
+            HorizontalOptions="Center"
+            HeightRequest="500">
             <CollectionView x:Name="CollectionBaralhos"
                             SelectionMode="Single"
                             ItemsSource="{Binding Baralhos}"
@@ -49,7 +51,8 @@
                             HorizontalOptions="Center">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Baralho">
-                        <HorizontalStackLayout Spacing="10" HeightRequest="60" WidthRequest="350" Margin="0,0,0,20">
+                        <HorizontalStackLayout Spacing="10" HeightRequest="60" WidthRequest="350" Margin="0,0,0,20"
+                                               HorizontalOptions="Center">
                             <Border
                                 Stroke="Red"
                                 StrokeThickness="4"

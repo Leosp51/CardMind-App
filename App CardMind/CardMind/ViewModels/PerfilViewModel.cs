@@ -44,7 +44,9 @@ namespace CardMind.ViewModels
         public async Task Logout()
         {
             Preferences.Set("statusUsuario", "deslogado");
+           // Preferences.Clear();
             await navigationService.NavigateToAsync("//Login");
+
         }
 
         public PerfilViewModel(INavigationService navigationService)

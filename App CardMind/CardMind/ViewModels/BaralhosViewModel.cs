@@ -24,7 +24,7 @@ namespace CardMind.ViewModels
         [ObservableProperty]
         public ObservableCollection<Baralho> baralhos;
         [ObservableProperty]
-        public Baralho item = new Baralho();
+        public Baralho? item = null;
         [ObservableProperty]
         public string dinheiroUsuario;
         [ObservableProperty]

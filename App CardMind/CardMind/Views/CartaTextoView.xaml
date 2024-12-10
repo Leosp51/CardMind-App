@@ -2,33 +2,53 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CardMind.Views.CartaTextoView"
-             xmlns:controls="clr-namespace:CardMind.Controls">
+             xmlns:controls="clr-namespace:CardMind.Controls"
+             Shell.NavBarIsVisible="False">
     <VerticalStackLayout
         >
         <controls:Header
             x:Name="header"/>
+        <ImageButton
+        Source="seta_preta.png"
+        HorizontalOptions="Start"
+        HeightRequest="20"
+        WidthRequest="30"
+        Margin="10,10,0,0"
+        Clicked="Voltar"
+/>
         <Border
-            Margin="20,10,10,10"
+            x:Name="borderBox"
+            Margin="10,10,10,10"
             Stroke="Red"
-            WidthRequest="350"
+            WidthRequest="400"
+            HeightRequest="560"
+            HorizontalOptions="Center"
             >
-            <VerticalStackLayout>        
+            <Grid>
+
+                <Image x:Name="imgFundo" 
+                    Source="white.jpg" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All"/>
+                <VerticalStackLayout>        
                 <Label
                     x:Name="lbNomeCarta"
                     FontSize="Large"
+                    Margin="0,25,0,25"
                     FontAttributes="Bold"
                     HorizontalTextAlignment="Center"/>
                 <Frame
+                    x:Name="frContent"
                     Padding="30"
                     BorderColor="Red"
-                    HeightRequest="400">
+                    HeightRequest="350">
                     <Label
                         x:Name="lbTexto"
                         FontSize="20"
                     />
                 </Frame>
                 <Button
-                    
+                    x:Name="btn"
                     Text="VOLTAR"
                     FontAttributes="Bold"
                     Margin="10"
@@ -40,6 +60,8 @@
                     Padding="5"
                     />
             </VerticalStackLayout>
+
+            </Grid>
         </Border>
 
     </VerticalStackLayout>

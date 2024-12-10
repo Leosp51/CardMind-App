@@ -8,4 +8,8 @@ public partial class TermosPopup : Popup
 	{
 		InitializeComponent();
 	}
+	private void Sair(object sender, EventArgs e)
+	{
+		Close();
+	}
 }

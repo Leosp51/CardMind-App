@@ -76,7 +76,8 @@ namespace CardMind.ViewModels
                 string route = carta.Tipo == "Pergunta" ? "CartaPergunta" : "CartaTexto";
                 await Shell.Current.GoToAsync(route, new Dictionary<string, object>
             {
-                { route, carta }
+                { route, carta },
+                {"Estilo", baralho.EstiloBaralho }
             });
             }
         }
@@ -112,6 +113,11 @@ namespace CardMind.ViewModels
                     CarregarCartas();
                 }
             }
+        }
+        [RelayCommand]
+        public async Task Voltar()
+        {
+            await navigationService.NavigateToAsync("//Menu/Home");
         }
     }
 }

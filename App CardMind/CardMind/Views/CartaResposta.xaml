@@ -3,39 +3,60 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CardMind.Views.CartaResposta"
              
-             xmlns:controls="clr-namespace:CardMind.Controls">
+             xmlns:controls="clr-namespace:CardMind.Controls"
+             Shell.NavBarIsVisible="False">
     <VerticalStackLayout>
 
         <controls:Header
             x:Name="header"/>
+        <ImageButton
+            Source="seta_preta.png"
+            HorizontalOptions="Start"
+            HeightRequest="20"
+            WidthRequest="30"
+            Margin="10,10,0,0"
+            Clicked="Voltar"
+/>
         <Border
+            x:Name="borderBox"
         Padding="0"
         Stroke="Red"
-            Margin="10">
-            <VerticalStackLayout>
-                <Label
-                    x:Name="lbNomeCarta"
-                    FontSize="Large"
-                    FontAttributes="Bold"
-                    HorizontalTextAlignment="Center"/>
-                <Frame
-                    Padding="30"
-                    BorderColor="Red"
-                    WidthRequest="340"
-                    HeightRequest="400">
+            Margin="10"
+            WidthRequest="400"
+            HeightRequest="560">
+            <Grid>
+                <Image x:Name="imgFundo" 
+                             Source="white.jpg" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All"/>
+                <VerticalStackLayout>
                     <Label
-                    x:Name="lbResposta"
-                    FontSize="20"/>
-                </Frame>
-                <Button
-                    Text="FINALIZAR"
-                    FontAttributes="Bold"
-                    FontSize="20"
-                    BackgroundColor="Red"
-                    Margin="10"
-                    TextColor="White"
-                    Clicked="Button_Clicked"/>
-            </VerticalStackLayout>
+                        x:Name="lbNomeCarta"
+                        FontSize="Large"
+                        FontAttributes="Bold"
+                        Margin="0,25,0,25"
+                        HorizontalTextAlignment="Center"/>
+                    <Frame
+                        Padding="30"
+                        x:Name="frContent"
+                        BorderColor="Red"
+                        HeightRequest="350">
+                        <Label
+                        x:Name="lbResposta"
+                        FontSize="20"/>
+                    </Frame>
+                    <Button
+                        Text="FINALIZAR"
+                        x:Name="btn"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        BackgroundColor="Red"
+                        Margin="10"
+                        TextColor="White"
+                        Clicked="Button_Clicked"/>
+                </VerticalStackLayout>
+
+            </Grid>
         </Border>
     </VerticalStackLayout>
 </ContentPage>

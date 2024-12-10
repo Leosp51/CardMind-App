@@ -88,6 +88,7 @@
 	  <None Remove="Resources\Images\perfil_pessoa.png" />
 	  <None Remove="Resources\Images\perfil_pessoa_menu_inferior.png" />
 	  <None Remove="Resources\Images\seta_direita.png" />
+	  <None Remove="Resources\Images\seta_preta.png" />
 	  <None Remove="Resources\Images\triangulo.png" />
 	  <None Remove="Resources\Images\trofeu.png" />
 	  <None Remove="Resources\Images\trofeu_menu.png" />

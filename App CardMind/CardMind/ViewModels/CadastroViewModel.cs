@@ -60,22 +60,18 @@ namespace CardMind.ViewModels
                 Message += ValidarEmail(Usuario.Email);
                 Message += ValidarSenha(Usuario.Senha);
             }
-            if (Usuario.Senha != ConfirmarSenha && string.IsNullOrWhiteSpace(Message))
+            if (string.IsNullOrWhiteSpace(Message))
+            {
+                 if (Usuario.Senha != ConfirmarSenha)
                 {
+
                     Message += "Senhas diferentes!\n";
                     Cor = "Red";
                 }
-            else
-                {
-                    if (Usuario.Senha == null)
-                    {
-                        Message += "Insira a senha!";
-                    }
-                    if (ConfirmarSenha == null)
-                    {
-                        Message += "Confirme a senha";
-                    }
+                if (!IsChecked) {
+                    Message += "É necessário concordar com os termos e nossa política";
                 }
+            }
             
             if (string.IsNullOrEmpty(Message))
             {

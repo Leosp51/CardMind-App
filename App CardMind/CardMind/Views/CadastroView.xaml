@@ -84,28 +84,37 @@
             Text="{Binding Message}"
             TextColor="Red"/>
 
-        <HorizontalStackLayout>
+        <HorizontalStackLayout
+            HorizontalOptions="Center">
 
             <CheckBox
-            IsChecked="{Binding IsChecked}"
+                IsChecked="{Binding IsChecked}"
+                Color="Red"
+                HeightRequest="30"
+                WidthRequest="30"
+                Margin="0,0,2,0"
             />
-            <Label>
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="Ao fazer, você concorda com nossos"/>
-                        <Span
-                            Text="Termos de Uso e Política de Privacidade"
-                            TextColor="Red"
-                            >
-                            <Span.GestureRecognizers>
-                                <TapGestureRecognizer
-                                    Command="{Binding VerTermosCommand}"
-                                    />
-                            </Span.GestureRecognizers>
-                        </Span>
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
+            <VerticalStackLayout>
+                <Label
+                    Text="Ao fazer o cadastro, você concorda com nossos "/>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                                Text="Termos de Uso e Política de Privacidade"
+                                TextColor="Red"
+                                >   
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding VerTermosCommand}"
+                                        />      
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </VerticalStackLayout>
+            
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

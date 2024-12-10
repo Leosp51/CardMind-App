@@ -2,22 +2,42 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CardMind.Views.EscolhaDificuldadeView"
-             xmlns:control="clr-namespace:CardMind.Controls">
+             xmlns:control="clr-namespace:CardMind.Controls"
+             Shell.NavBarIsVisible="False">
     <VerticalStackLayout>
         <control:Header
             x:Name="header"
             />
+        <ImageButton
+            Source="seta_preta.png"
+            HorizontalOptions="Start"
+            HeightRequest="20"
+            WidthRequest="30"
+            Margin="10,10,0,0"
+            Clicked="Voltar"
+/>
         <Border
+            x:Name="borderBox"
             Padding="0"
+            WidthRequest="400"
+            HeightRequest="560"
+            HorizontalOptions="Center"
             Stroke="Red"
             Margin="10">
+            <Grid>
+                <Image x:Name="imgFundo" 
+                    Source="white.jpg" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All"/>
             <VerticalStackLayout>
                 <Label
                     x:Name="lbNomeCarta"
                     FontSize="Large"
                     FontAttributes="Bold"
+                    Margin="0,20,0,20"
                     HorizontalTextAlignment="Center"/>
                 <Frame
+                    x:Name="frContent"
                     Padding="2"
                     BorderColor="Red"
                     WidthRequest="340"
@@ -27,7 +47,7 @@
                             Padding="0,70,0,0">
 
                             <Label
-                            x:Name="lbResposta"
+                            x:Name="lbTexto1"
                             Text="Qual foi o nível de "
                             HorizontalTextAlignment="Center"
                             FontSize="20" 
@@ -35,12 +55,13 @@
 
                             <Label
                             Text="dificuldade ao concluir esta carta?"
-                            
+                            x:Name="lbTexto2"
                             HorizontalTextAlignment="Center"
                             FontSize="22" 
                             HorizontalOptions="Center"/>
                         </VerticalStackLayout>
                         <Label
+                            x:Name="lbTexto3"
                             Text="Ser Notificado em :"
                             HorizontalOptions="Center"
                             Margin="0,10,0,10"
@@ -49,6 +70,7 @@
                             HorizontalOptions="Center"
                             Margin="0,10,0,0">
                             <Label
+                                x:Name="lbTexto4"
                                 Text="FACÍL"
                                 VerticalOptions="Center"
                                 FontAttributes="Bold"
@@ -56,6 +78,7 @@
                             <Border
                                 Stroke="Black"
                                 HorizontalOptions="Center"
+                                BackgroundColor="White"
                                 >
                                 <Grid
                                     >
@@ -106,6 +129,7 @@
                             </Border>
                             <Label
                                 Text="DIFÍCIL"
+                                x:Name="lbTexto5"
                                 HorizontalOptions="End"
                                 Margin="10"
                                 FontAttributes="Bold"
@@ -114,14 +138,17 @@
                     </VerticalStackLayout>
                 </Frame>
                 <Button
+                    x:Name="btn"
                     Text="CONCLUIR"
-                    Margin="10,5,10,5"
+                    Margin="10,15,10,5"
                     Clicked="Concluir"
                     FontSize="20"
                     FontAttributes="Bold"
                     BackgroundColor="Red"/>
 
             </VerticalStackLayout>
+
+            </Grid>
         </Border>
     </VerticalStackLayout>
 </ContentPage>
