@@ -51,7 +51,7 @@
                         FontAttributes="Bold"
                         FontSize="20"
                         BackgroundColor="Red"
-                        Margin="10"
+                        Margin="0,24,0,0"
                         TextColor="White"
                         Clicked="Button_Clicked"/>
                 </VerticalStackLayout>

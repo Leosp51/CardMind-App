@@ -20,8 +20,8 @@
     />
         <Border
             x:Name="borderBox"
-            Margin="10"
             Stroke="Red"
+            HeightRequest="566"
             >
             <Grid>
                 <Image x:Name="imgFundo" 
@@ -53,7 +53,7 @@
                         Padding="30"
                         BorderColor="Red"
                         BackgroundColor="Transparent"
-                        HeightRequest="300">
+                        HeightRequest="350">
                         <Label
                             x:Name="lbPergunta"
                             TextColor="Black"

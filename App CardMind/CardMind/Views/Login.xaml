@@ -4,6 +4,20 @@
              x:Class="CardMind.Views.Login"
              xmlns:viewmodels="clr-namespace:CardMind.ViewModels"
              x:DataType="viewmodels:LoginViewModel">
+    <Page.Resources>
+        <Style TargetType="Entry">
+            <Setter Property="Background" Value="#EDEDED"/>
+            <Setter Property="HeightRequest" Value="60"/>
+            <Setter Property="WidthRequest" Value="300"/>
+        </Style>
+
+        <Style TargetType="Border">
+            <Setter Property="Margin" Value="0,20,0,0"/>
+            <Setter Property="WidthRequest" Value="300"/>
+            <Setter Property="BackgroundColor" Value="#EDEDED"/>
+
+        </Style>
+    </Page.Resources>
     <VerticalStackLayout
         Padding="15">
         <HorizontalStackLayout
@@ -22,27 +36,42 @@
                 HeightRequest="45"/>
         </HorizontalStackLayout>
         <Label
-            Text="Login"
+            Text="LOGIN"
+            Margin="30"
             FontSize="Large"
             HorizontalOptions="Center"
             />
-        <Entry
-            Placeholder="Email"
-            Text="{Binding Email}"/>
-        <Entry
-            Placeholder="Senha"
-            Text="{Binding Password}"
-            IsPassword="True"/>
+        <Border>
+
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="15,15,15,15" />
+            </Border.StrokeShape>
+            <Entry
+                Placeholder="Email"
+                Text="{Binding Email}"/>
+
+        </Border>
+        <Border>
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="15,15,15,15" />
+            </Border.StrokeShape>
+            <Entry
+                Placeholder="Senha"
+                Text="{Binding Password}"
+                IsPassword="True"/>
+        </Border>
         <Label
             Text="Esqueceu a senha?"
             FontSize="Small"
             TextColor="Red"
+            Margin="15,7,0,7"
             />
         
         <Button
             Text="Fazer Login"
             BackgroundColor="Red"
             Command="{Binding SignInCommand}"
+            WidthRequest="300"
             />
         <Label
             Margin="5"

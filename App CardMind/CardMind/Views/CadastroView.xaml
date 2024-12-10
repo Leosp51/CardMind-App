@@ -96,6 +96,7 @@
             />
             <VerticalStackLayout>
                 <Label
+                    FontSize="13"
                     Text="Ao fazer o cadastro, você concorda com nossos "/>
                 <Label>
                     <Label.FormattedText>
@@ -103,6 +104,7 @@
                             <Span
                                 Text="Termos de Uso e Política de Privacidade"
                                 TextColor="Red"
+                                FontSize="13"
                                 >   
                                 <Span.GestureRecognizers>
                                     <TapGestureRecognizer
